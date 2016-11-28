@@ -38,11 +38,11 @@ export class SituationGeneratorConfigComponent implements OnInit {
     let scenario: number = Math.round(Math.random() * this.scenarios.length) - 1;
     if (this.scenario) { // scenarios are selected by a common type name, so pick one at random
       const subScenarios: Scenario[] = this.scenarios.filter(elem => elem.title == this.scenario.title);
-      scenario = this.scenarios.indexOf(subScenarios[Math.round(Math.random() * subScenarios.length) - 1]);
+      scenario = this.scenarios.indexOf(subScenarios[Math.round(Math.random() * (subScenarios.length - 1))]);
     }
-    const playerA: number = this.playerA ? this.players.indexOf(this.playerA) : Math.round(Math.random() * this.players.length) - 1;
-    const playerB: number = this.playerB ? this.players.indexOf(this.playerB) : Math.round(Math.random() * this.players.length) - 1;
-    const tournament: number = this.tournament ? this.tournaments.indexOf(this.tournament) : Math.round(Math.random() * this.tournaments.length) - 1;
+    const playerA: number = this.playerA ? this.players.indexOf(this.playerA) : Math.round(Math.random() * (this.players.length - 1));
+    const playerB: number = this.playerB ? this.players.indexOf(this.playerB) : Math.round(Math.random() * (this.players.length - 1));
+    const tournament: number = this.tournament ? this.tournaments.indexOf(this.tournament) : Math.round(Math.random() * (this.tournaments.length - 1));
 
     this.router.navigate(['/situation-generator', {scenario, playerA, playerB, tournament}]);
   }
