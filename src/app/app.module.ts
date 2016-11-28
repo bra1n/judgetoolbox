@@ -9,6 +9,7 @@ import { SituationService } from "./situation-generator/situation.service";
 import { SituationGeneratorConfigComponent } from "./situation-generator/situation-generator-config.component";
 import { UniquePipe } from './situation-generator/unique.pipe';
 import { AppRoutingModule } from './app-routing.module';
+import { MaterialModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AppRoutingModule } from './app-routing.module';
     FormsModule,
     HttpModule,
     JsonpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialModule.forRoot()
   ],
   providers: [
     SituationService

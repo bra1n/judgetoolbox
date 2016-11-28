@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'situation-generator-config',
   templateUrl: './situation-generator-config.component.html',
-  styleUrls: ['./situation-generator-config.component.css']
+  styleUrls: ['./situation-generator-config.component.scss']
 })
 export class SituationGeneratorConfigComponent implements OnInit {
 

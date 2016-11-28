@@ -11,11 +11,13 @@ const appRoutes: Routes = [
   },
   {
     path: 'situation-generator',
-    component: SituationGeneratorComponent
+    component: SituationGeneratorComponent,
+    data: {title: 'Random Situation'}
   },
   {
     path: 'situation-generator-config',
-    component: SituationGeneratorConfigComponent
+    component: SituationGeneratorConfigComponent,
+    data: {title: 'Random Situation Generator'}
   }
 ];
 

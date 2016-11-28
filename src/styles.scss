@@ -1,0 +1,11 @@
+@import '~normalize-css/normalize.css';
+@import '~@angular/material/core/theming/all-theme';
+
+@include md-core();
+
+$judge-app-primary: md-palette($md-red);
+$judge-app-accent: md-palette($md-orange, A200, A100, A400);
+$judge-app-warn: md-palette($md-yellow);
+$judge-app-theme: md-light-theme($judge-app-primary, $judge-app-accent, $judge-app-warn);
+
+@include angular-material-theme($judge-app-theme);

@@ -1,37 +1,37 @@
-<h2>Random Situation Generator</h2>
+<div class="container">
+  <form (submit)="onSubmit()">
+    <label for="scenario">Scenario:</label>
+    <select [(ngModel)]="scenario" name="scenario" id="scenario">
+      <option [ngValue]="null">Random</option>
+      <option *ngFor="let elem of scenarios | unique:['title']" [ngValue]="elem">
+        {{elem.title}}
+      </option>
+    </select>
 
-<form (submit)="onSubmit()">
-  Scenario:
-  <select [(ngModel)]="scenario" name="scenario">
-    <option [ngValue]="null">Random</option>
-    <option *ngFor="let elem of scenarios | unique:['title']" [ngValue]="elem">
-      {{elem.title}}
-    </option>
-  </select><br>
+    <label for="playerA">Player A:</label>
+    <select [(ngModel)]="playerA" name="playerA" id="playerA">
+      <option [ngValue]="null">Random</option>
+      <option *ngFor="let elem of players | unique:['type','personality','guilty']" [ngValue]="elem">
+        {{elem.type}} - {{elem.personality}} - {{elem.guilty ? 'Guilty':'Not Guilty'}}
+      </option>
+    </select>
 
-  Player A:
-  <select [(ngModel)]="playerA" name="playerA">
-    <option [ngValue]="null">Random</option>
-    <option *ngFor="let elem of players | unique:['type','personality','guilty']" [ngValue]="elem">
-      {{elem.type}} - {{elem.personality}} - {{elem.guilty ? 'Guilty':'Not Guilty'}}
-    </option>
-  </select><br>
+    <label for="playerB">Player B:</label>
+    <select [(ngModel)]="playerB" name="playerB" id="playerB">
+      <option [ngValue]="null">Random</option>
+      <option *ngFor="let elem of players | unique:['type','personality','opinion']" [ngValue]="elem">
+        {{elem.type}} - {{elem.personality}} - {{elem.opinion}}
+      </option>
+    </select>
 
-  Player B:
-  <select [(ngModel)]="playerB" name="playerB">
-    <option [ngValue]="null">Random</option>
-    <option *ngFor="let elem of players | unique:['type','personality','opinion']" [ngValue]="elem">
-      {{elem.type}} - {{elem.personality}} - {{elem.opinion}}
-    </option>
-  </select><br>
+    <label for="tournament">Tournament:</label>
+    <select [(ngModel)]="tournament" name="tournament" id="tournament">
+      <option [ngValue]="null">Random</option>
+      <option *ngFor="let elem of tournaments" [ngValue]="elem">
+        {{elem.title}}
+      </option>
+    </select>
 
-  Tournament:
-  <select [(ngModel)]="tournament" name="tournament">
-    <option [ngValue]="null">Random</option>
-    <option *ngFor="let elem of tournaments" [ngValue]="elem">
-      {{elem.title}}
-    </option>
-  </select><br>
-
-  <button type="submit">Generate Situation</button>
-</form>
+    <button md-raised-button color="primary" type="submit">Generate Situation</button>
+  </form>
+</div>

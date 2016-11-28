@@ -1,7 +1,11 @@
-<h1>
-  {{title}}
-</h1>
-<nav>
-  <a routerLink="/situation-generator-config">Random Situation Generator</a>
-</nav>
+<md-toolbar color="primary">
+  <span>Judge Toolbox</span>
+  <span class="gap">{{title}}</span>
+  <button md-icon-button [md-menu-trigger-for]="menu">
+    <md-icon>more_vert</md-icon>
+  </button>
+</md-toolbar>
+<md-menu x-position="before" #menu="mdMenu">
+  <button md-menu-item routerLink="/situation-generator-config">Random Situation Generator</button>
+</md-menu>
 <router-outlet></router-outlet>

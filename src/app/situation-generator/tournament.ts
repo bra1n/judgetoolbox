@@ -1,11 +1,11 @@
 export class Tournament {
   title: string;
   description: string;
-  example: string;
+  staff: string;
 
   constructor(row: Object) {
     this.title = row['Title'];
     this.description = row['Description'];
-    this.example = row['Example'];
+    this.staff = row['Staff'];
   }
 }

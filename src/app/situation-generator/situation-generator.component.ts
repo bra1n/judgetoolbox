@@ -8,7 +8,7 @@ import { Tournament } from './tournament';
 @Component({
   selector: 'situation-generator',
   templateUrl: './situation-generator.component.html',
-  styleUrls: ['./situation-generator.component.css']
+  styleUrls: ['./situation-generator.component.scss']
 })
 export class SituationGeneratorComponent implements OnInit {
 
@@ -20,6 +20,7 @@ export class SituationGeneratorComponent implements OnInit {
   private playerAId: number;
   private playerBId: number;
   private tournamentId: number;
+  private step: number = 1;
 
   constructor(
     private situationService: SituationService,
@@ -44,4 +45,13 @@ export class SituationGeneratorComponent implements OnInit {
       .subscribe(tournaments => this.tournaments = tournaments);
   }
 
+  next() {
+    this.step++;
+  }
+
+  previous() {
+    if(confirm("Are you sure you want to go back?")) {
+      this.step--;
+    }
+  }
 }

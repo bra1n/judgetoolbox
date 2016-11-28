@@ -1,0 +1,36 @@
+.step1 {
+  display: flex;
+  flex-wrap: wrap;
+  line-height: 24px;
+  .player {
+    width: 48%;
+    margin: 1%;
+    box-sizing: border-box;
+  }
+  .scenario {
+    width: 98%;
+    margin: 1%;
+  }
+}
+
+.step2 {
+  display: flex;
+  flex-wrap: wrap;
+  line-height: 24px;
+  .tournament {
+    width: 98%;
+    margin: 1%;
+  }
+}
+
+md-icon {
+  vertical-align: middle;
+}
+b {
+  display: inline-block;
+  width: 100px;
+}
+button {
+  margin: 0 1%;
+  width: 48%;
+}

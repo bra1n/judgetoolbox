@@ -1,12 +1,45 @@
-<div *ngIf="scenarios[scenarioId]">
-  {{scenarios[scenarioId].title}}
+<div class="step1" *ngIf="step == 1">
+  <md-card class="player" *ngIf="players[playerAId]">
+    <md-card-title>Player A</md-card-title>
+    <md-card-content>
+      <b>Type:</b> <span>{{players[playerAId].type}}</span><br>
+      <b>Personality:</b> <span>{{players[playerAId].personality}}</span><br>
+      <b>On purpose:</b> <span><md-icon>{{players[playerAId].guilty ? 'check_circle':'cancel'}}</md-icon></span>
+    </md-card-content>
+  </md-card>
+  <md-card class="player" *ngIf="players[playerBId]">
+    <md-card-title>Player B</md-card-title>
+    <md-card-content>
+      <b>Type:</b> <span>{{players[playerAId].type}}</span><br>
+      <b>Personality:</b> <span>{{players[playerAId].personality}}</span><br>
+      <b>Opinion:</b> <span>{{players[playerAId].opinion}}</span>
+    </md-card-content>
+  </md-card>
+  <md-card class="scenario" *ngIf="scenarios[scenarioId]">
+    <md-card-title>Scenario</md-card-title>
+    <md-card-content>
+      <b>Title:</b> <span>{{scenarios[scenarioId].title}}</span><br>
+      <b>Description:</b> <span>{{scenarios[scenarioId].description}}</span><br>
+      <span *ngIf="scenarios[scenarioId].example">
+        <b>Example:</b> <span>{{scenarios[scenarioId].example}}</span>
+      </span>
+    </md-card-content>
+  </md-card>
+
+  <button md-raised-button routerLink="/situation-generator-config">Back</button>
+  <button md-raised-button color="primary" (click)="next()">Done</button>
 </div>
-<div *ngIf="players[playerAId]">
-  {{players[playerAId].type}}
-</div>
-<div *ngIf="players[playerBId]">
-  {{players[playerBId].type}}
-</div>
-<div *ngIf="tournaments[tournamentId]">
-  {{tournaments[tournamentId].title}}
+
+<div class="step2" *ngIf="step == 2">
+  <md-card class="tournament" *ngIf="tournaments[tournamentId]">
+    <md-card-title>Tournament</md-card-title>
+    <md-card-content>
+      <b>Title:</b> <span>{{tournaments[tournamentId].title}}</span><br>
+      <b>Description:</b> <span>{{tournaments[tournamentId].description}}</span><br>
+      <b>Staff:</b> <span>{{tournaments[tournamentId].staff}}</span><br>
+    </md-card-content>
+  </md-card>
+
+  <button md-raised-button (click)="previous()">Back</button>
+  <button md-raised-button color="primary" routerLink="/situation-generator-config">Restart</button>
 </div>
