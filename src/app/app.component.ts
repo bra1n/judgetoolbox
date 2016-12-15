@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'judge-toolbox',
@@ -9,16 +10,21 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 export class AppComponent {
   title: string;
 
-  constructor(private router:Router, private route:ActivatedRoute) {}
+  constructor(
+    private router:Router,
+    private route:ActivatedRoute,
+    private titleService:Title
+  ) {}
 
   ngOnInit() {
     // get title from current route
     this.router.events
       .filter(event => event instanceof NavigationEnd)
       .subscribe(() => {
-        this.route.firstChild.data.subscribe(({title}) =>
-          this.title = title ? ' - '+title:''
-        );
+        this.route.firstChild.data.subscribe(({title}) => {
+            this.title = title || 'Judge Toolbox';
+            this.titleService.setTitle(this.title);
+        });
       });
   }
 }

@@ -9,37 +9,37 @@ import { Tournament } from './tournament';
 export class SituationService {
 
   private urls = {
-    player: 'https://spreadsheets.google.com/feeds/cells/1PWfCiMOd1_cdB6q2gEscadySCVCGyEvSVPpDasjhwSg/1/public/values?alt=json-in-script&callback=JSONP_CALLBACK',
+    player: 'https://spreadsheets.google.com/feeds/cells/1PWfCiMOd1_cdB6q2gEscadySCVCGyEvSVPpDasjhwSg/4/public/values?alt=json-in-script&callback=JSONP_CALLBACK',
     tournament: 'https://spreadsheets.google.com/feeds/cells/1PWfCiMOd1_cdB6q2gEscadySCVCGyEvSVPpDasjhwSg/2/public/values?alt=json-in-script&callback=JSONP_CALLBACK',
     scenario: 'https://spreadsheets.google.com/feeds/cells/1PWfCiMOd1_cdB6q2gEscadySCVCGyEvSVPpDasjhwSg/3/public/values?alt=json-in-script&callback=JSONP_CALLBACK'
   };
 
   private requests = {
-    players: new ReplaySubject(1),
+    player: new ReplaySubject(1),
     tournaments: new ReplaySubject(1),
     scenarios: new ReplaySubject(1)
   };
 
   constructor (private jsonp: Jsonp) {}
 
-  getPlayers (): Observable<Player[]> {
-    if(!this.requests.players.observers.length) {
+  getPlayer (): Observable<Player> {
+    if(!this.requests.player.observers.length) {
       this.jsonp.get(this.urls.player)
-        .map(this.parsePlayers.bind(this))
+        .map(this.parsePlayer.bind(this))
         .catch(this.handleError)
         .subscribe(
-          players => this.requests.players.next(players),
-          error => this.requests.players.error(error)
+          player => this.requests.player.next(player),
+          error => this.requests.player.error(error)
         );
     }
-    return <Observable<Player[]>> this.requests.players.asObservable();
+    return <Observable<Player>> this.requests.player.asObservable();
   }
 
-  private parsePlayers (res: Response): Player[] {
+  private parsePlayer (res: Response): Player {
     const body = res.json();
-    const players: Player[] = [];
-    this.parseSpreadsheet(body).forEach((row) => players.push(new Player(row)));
-    return players;
+    const player: Player = new Player();
+    this.parseSpreadsheet(body).forEach((row) => player.import(row));
+    return player;
   }
 
   getScenarios (): Observable<Scenario[]> {

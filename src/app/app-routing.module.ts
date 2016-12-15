@@ -6,16 +6,16 @@ import { SituationGeneratorConfigComponent } from './situation-generator/situati
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: '/situation-generator-config',
+    redirectTo: '/random-situation-generator',
     pathMatch: 'full'
   },
   {
-    path: 'situation-generator',
+    path: 'random-situation',
     component: SituationGeneratorComponent,
     data: {title: 'Random Situation'}
   },
   {
-    path: 'situation-generator-config',
+    path: 'random-situation-generator',
     component: SituationGeneratorConfigComponent,
     data: {title: 'Random Situation Generator'}
   }

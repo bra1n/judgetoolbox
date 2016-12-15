@@ -12,13 +12,18 @@ import { Tournament } from './tournament';
 })
 export class SituationGeneratorComponent implements OnInit {
 
-  private players: Player[] = [];
+  private player: Player = new Player();
   private scenarios: Scenario[] = [];
   private tournaments: Tournament[] = [];
 
   private scenarioId: number;
-  private playerAId: number;
-  private playerBId: number;
+  private players:{
+    name: String,
+    type: Number,
+    personality: Number,
+    guilty: Number,
+    opinion: Number
+  }[];
   private tournamentId: number;
   private step: number = 1;
 
@@ -30,13 +35,24 @@ export class SituationGeneratorComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.scenarioId = +params['scenario'];
-      this.playerAId = +params['playerA'];
-      this.playerBId = +params['playerB'];
       this.tournamentId = +params['tournament'];
+      this.players = [];
+      params['players'].split('--').forEach((playerIds, index) => {
+        const player = playerIds.split('-');
+        if(player.length == 4) {
+          this.players.push({
+            name: String.fromCharCode(65 + index),
+            type: player[0],
+            personality: player[1],
+            guilty: player[2],
+            opinion: player[3]
+          });
+        }
+      });
     });
 
-    this.situationService.getPlayers()
-      .subscribe(players => this.players = players);
+    this.situationService.getPlayer()
+      .subscribe(player => this.player = player);
 
     this.situationService.getScenarios()
       .subscribe(scenarios => this.scenarios = scenarios);

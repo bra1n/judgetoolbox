@@ -12,20 +12,27 @@ import { Router } from '@angular/router';
 })
 export class SituationGeneratorConfigComponent implements OnInit {
 
-  private players: Player[] = [];
+  private player: Player = new Player();
   private scenarios: Scenario[] = [];
   private tournaments: Tournament[] = [];
 
-  private playerA: Player = null;
-  private playerB: Player = null;
+  private players:{
+    type: Number,
+    personality: Number,
+    guilty: Number,
+    opinion: Number
+  }[] = [
+    {type: null, personality: null, guilty: null, opinion: null},
+    {type: null, personality: null, guilty: null, opinion: null}
+    ];
   private scenario: Scenario = null;
   private tournament: Tournament = null;
 
   constructor(private situationService: SituationService, private router: Router) { }
 
   ngOnInit() {
-    this.situationService.getPlayers()
-      .subscribe(players => this.players = players);
+    this.situationService.getPlayer()
+      .subscribe(player => this.player = player);
 
     this.situationService.getScenarios()
       .subscribe(scenarios => this.scenarios = scenarios);
@@ -40,11 +47,17 @@ export class SituationGeneratorConfigComponent implements OnInit {
       const subScenarios: Scenario[] = this.scenarios.filter(elem => elem.title == this.scenario.title);
       scenario = this.scenarios.indexOf(subScenarios[Math.round(Math.random() * (subScenarios.length - 1))]);
     }
-    const playerA: number = this.playerA ? this.players.indexOf(this.playerA) : Math.round(Math.random() * (this.players.length - 1));
-    const playerB: number = this.playerB ? this.players.indexOf(this.playerB) : Math.round(Math.random() * (this.players.length - 1));
+    let players = [];
+    this.players.forEach(player => {
+      if(player.type === null) player.type = Math.round(Math.random() * (this.player.getTypes().length - 1));
+      if(player.personality === null) player.personality = Math.round(Math.random() * (this.player.getPersonalities().length - 1));
+      if(player.guilty === null) player.guilty = Math.round(Math.random() * (this.player.getGuilts().length - 1));
+      if(player.opinion === null) player.opinion = Math.round(Math.random() * (this.player.getOpinions().length - 1));
+      players.push([player.type, player.personality, player.guilty, player.opinion].join('-'));
+    });
     const tournament: number = this.tournament ? this.tournaments.indexOf(this.tournament) : Math.round(Math.random() * (this.tournaments.length - 1));
 
-    this.router.navigate(['/situation-generator', {scenario, playerA, playerB, tournament}]);
+    this.router.navigate(['/random-situation', {scenario, players: players.join('--'), tournament}]);
   }
 
 }

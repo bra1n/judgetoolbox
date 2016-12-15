@@ -1,18 +1,11 @@
 <div class="step1" *ngIf="step == 1">
-  <md-card class="player" *ngIf="players[playerAId]">
-    <md-card-title>Player A</md-card-title>
+  <md-card class="player" *ngFor="let playerIds of players; let i = index">
+    <md-card-title>Player {{playerIds.name}}</md-card-title>
     <md-card-content>
-      <b>Type:</b> <span>{{players[playerAId].type}}</span><br>
-      <b>Personality:</b> <span>{{players[playerAId].personality}}</span><br>
-      <b>On purpose:</b> <span><md-icon>{{players[playerAId].guilty ? 'check_circle':'cancel'}}</md-icon></span>
-    </md-card-content>
-  </md-card>
-  <md-card class="player" *ngIf="players[playerBId]">
-    <md-card-title>Player B</md-card-title>
-    <md-card-content>
-      <b>Type:</b> <span>{{players[playerAId].type}}</span><br>
-      <b>Personality:</b> <span>{{players[playerAId].personality}}</span><br>
-      <b>Opinion:</b> <span>{{players[playerAId].opinion}}</span>
+      <div><b>Type:</b> <span>{{player.getTypes()[playerIds.type]}}</span></div>
+      <div><b>Personality:</b> <span>{{player.getPersonalities()[playerIds.personality]}}</span></div>
+      <div *ngIf="i == 0"><b>On purpose:</b> <span>{{player.getGuilts()[playerIds.guilty]}}</span></div>
+      <div *ngIf="i == 1"><b>Opinion:</b> <span>{{player.getOpinions()[playerIds.opinion]}}</span></div>
     </md-card-content>
   </md-card>
   <md-card class="scenario" *ngIf="scenarios[scenarioId]">
@@ -26,7 +19,7 @@
     </md-card-content>
   </md-card>
 
-  <button md-raised-button routerLink="/situation-generator-config">Back</button>
+  <button md-raised-button routerLink="/random-situation-generator">Back</button>
   <button md-raised-button color="primary" (click)="next()">Done</button>
 </div>
 
@@ -41,5 +34,5 @@
   </md-card>
 
   <button md-raised-button (click)="previous()">Back</button>
-  <button md-raised-button color="primary" routerLink="/situation-generator-config">Restart</button>
+  <button md-raised-button color="primary" routerLink="/randmom-situation-generator">Restart</button>
 </div>
