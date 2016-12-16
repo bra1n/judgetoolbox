@@ -9,7 +9,7 @@ import { Tournament } from './tournament';
 export class SituationService {
 
   private urls = {
-    player: 'https://spreadsheets.google.com/feeds/cells/1PWfCiMOd1_cdB6q2gEscadySCVCGyEvSVPpDasjhwSg/4/public/values?alt=json-in-script&callback=JSONP_CALLBACK',
+    player: 'https://spreadsheets.google.com/feeds/cells/1PWfCiMOd1_cdB6q2gEscadySCVCGyEvSVPpDasjhwSg/1/public/values?alt=json-in-script&callback=JSONP_CALLBACK',
     tournament: 'https://spreadsheets.google.com/feeds/cells/1PWfCiMOd1_cdB6q2gEscadySCVCGyEvSVPpDasjhwSg/2/public/values?alt=json-in-script&callback=JSONP_CALLBACK',
     scenario: 'https://spreadsheets.google.com/feeds/cells/1PWfCiMOd1_cdB6q2gEscadySCVCGyEvSVPpDasjhwSg/3/public/values?alt=json-in-script&callback=JSONP_CALLBACK'
   };
@@ -103,7 +103,6 @@ export class SituationService {
   }
 
   private handleError (error: Response | any) {
-    // In a real world app, we might use a remote logging infrastructure
     let errMsg: string;
     if (error instanceof Response) {
       const body = error.json() || '';

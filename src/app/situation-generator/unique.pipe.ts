@@ -10,7 +10,9 @@ export class UniquePipe implements PipeTransform {
     return items.filter(item => {
       let pattern = '';
       args.forEach(prop => {
-        pattern += item[prop].toString().trim() + '##';
+        if(item[prop]){
+          pattern += item[prop].toString().trim() + '##';
+        }
       });
       if (knownItems.indexOf(pattern) > -1) return false;
       knownItems.push(pattern);

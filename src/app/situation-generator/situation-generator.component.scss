@@ -1,3 +1,7 @@
+.step1, .step2 {
+  margin-bottom: 10px;
+}
+
 .step1 {
   display: flex;
   flex-wrap: wrap;
@@ -33,4 +37,8 @@ b {
 button {
   margin: 0 1%;
   width: 48%;
+}
+
+md-card {
+  padding: 12px;
 }

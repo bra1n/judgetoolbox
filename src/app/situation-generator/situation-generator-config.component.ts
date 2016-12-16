@@ -43,10 +43,11 @@ export class SituationGeneratorConfigComponent implements OnInit {
 
   onSubmit() {
     let scenario: number = Math.round(Math.random() * this.scenarios.length) - 1;
-    if (this.scenario) { // scenarios are selected by a common type name, so pick one at random
-      const subScenarios: Scenario[] = this.scenarios.filter(elem => elem.title == this.scenario.title);
+    if (this.scenario) { // scenarios are selected by a common topic, so pick one at random
+      const subScenarios: Scenario[] = this.scenarios.filter(elem => elem.topic == this.scenario.topic);
       scenario = this.scenarios.indexOf(subScenarios[Math.round(Math.random() * (subScenarios.length - 1))]);
     }
+
     let players = [];
     this.players.forEach(player => {
       if(player.type === null) player.type = Math.round(Math.random() * (this.player.getTypes().length - 1));
@@ -55,6 +56,7 @@ export class SituationGeneratorConfigComponent implements OnInit {
       if(player.opinion === null) player.opinion = Math.round(Math.random() * (this.player.getOpinions().length - 1));
       players.push([player.type, player.personality, player.guilty, player.opinion].join('-'));
     });
+
     const tournament: number = this.tournament ? this.tournaments.indexOf(this.tournament) : Math.round(Math.random() * (this.tournaments.length - 1));
 
     this.router.navigate(['/random-situation', {scenario, players: players.join('--'), tournament}]);

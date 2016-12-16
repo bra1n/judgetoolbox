@@ -3,8 +3,8 @@
     <label for="scenario">Scenario:</label>
     <select [(ngModel)]="scenario" name="scenario" id="scenario">
       <option [ngValue]="null">Random</option>
-      <option *ngFor="let elem of scenarios | unique:['title']" [ngValue]="elem">
-        {{elem.title}}
+      <option *ngFor="let elem of scenarios | unique:['topic']" [ngValue]="elem">
+        {{elem.topic}}
       </option>
     </select>
 

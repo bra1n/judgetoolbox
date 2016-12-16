@@ -9,12 +9,12 @@
     </md-card-content>
   </md-card>
   <md-card class="scenario" *ngIf="scenarios[scenarioId]">
-    <md-card-title>Scenario</md-card-title>
+    <md-card-subtitle>{{scenarios[scenarioId].topic}}</md-card-subtitle>
+    <md-card-title>{{scenarios[scenarioId].title}}</md-card-title>
     <md-card-content>
-      <b>Title:</b> <span>{{scenarios[scenarioId].title}}</span><br>
-      <b>Description:</b> <span>{{scenarios[scenarioId].description}}</span><br>
+      <span>{{scenarios[scenarioId].description}}</span><br>
       <span *ngIf="scenarios[scenarioId].example">
-        <b>Example:</b> <span>{{scenarios[scenarioId].example}}</span>
+        <i>Example: {{scenarios[scenarioId].example}}</i>
       </span>
     </md-card-content>
   </md-card>
@@ -25,14 +25,15 @@
 
 <div class="step2" *ngIf="step == 2">
   <md-card class="tournament" *ngIf="tournaments[tournamentId]">
-    <md-card-title>Tournament</md-card-title>
+    <md-card-subtitle>REL {{tournaments[tournamentId].rel}}</md-card-subtitle>
+    <md-card-title>{{tournaments[tournamentId].title}}</md-card-title>
     <md-card-content>
-      <b>Title:</b> <span>{{tournaments[tournamentId].title}}</span><br>
-      <b>Description:</b> <span>{{tournaments[tournamentId].description}}</span><br>
-      <b>Staff:</b> <span>{{tournaments[tournamentId].staff}}</span><br>
+      <span>{{tournaments[tournamentId].description}}</span><br>
+      <i>Staff: <span>{{tournaments[tournamentId].staff}}</span></i>
     </md-card-content>
   </md-card>
 
   <button md-raised-button (click)="previous()">Back</button>
-  <button md-raised-button color="primary" routerLink="/randmom-situation-generator">Restart</button>
+  <button md-raised-button color="primary" routerLink="/random-situation-generator">Restart</button>
 </div>
+
