@@ -2,6 +2,7 @@
   "name": "judgetoolbox",
   "version": "1.0.0",
   "license": "MIT",
+  "author": "Steffen Baumgart <steffen@baumgart.biz>",
   "angular-cli": {},
   "scripts": {
     "start": "ng serve",

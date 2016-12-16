@@ -1,77 +1,89 @@
 <div class="container">
   <form (submit)="onSubmit()">
-    <label for="scenario">Scenario:</label>
-    <select [(ngModel)]="scenario" name="scenario" id="scenario">
-      <option [ngValue]="null">Random</option>
-      <option *ngFor="let elem of scenarios | unique:['topic']" [ngValue]="elem">
-        {{elem.topic}}
-      </option>
-    </select>
+    <div [hidden]="advanced" class="simple">
+      <p>Generate a truly random situation!</p>
+      <button md-raised-button color="primary" type="submit">Generate Situation</button>
+      <button type="button" md-raised-button (click)="advanced=1">Show advanced options</button>
+    </div>
+    <div [hidden]="!advanced">
+      <label for="scenario">Scenario:</label>
+      <select [(ngModel)]="scenario" name="scenario" id="scenario">
+        <option [ngValue]="null">Random</option>
+        <option *ngFor="let elem of scenarios | unique:['topic']" [ngValue]="elem">
+          {{elem.topic}}
+        </option>
+      </select>
 
-    <label for="playerA">Player A (Type, Personality, Guilty):</label>
-    <md-grid-list cols="3" rowHeight="50px">
-      <md-grid-tile>
-        <select [(ngModel)]="players[0].type" name="playerAType" id="playerA">
-          <option [ngValue]="null">Random</option>
-          <option *ngFor="let elem of player.getTypes(); let i = index" [ngValue]="i">
-            {{elem}}
-          </option>
-        </select>
-      </md-grid-tile>
-      <md-grid-tile>
-        <select [(ngModel)]="players[0].personality" name="playerAPersonality">
-          <option [ngValue]="null">Random</option>
-          <option *ngFor="let elem of player.getPersonalities(); let i = index" [ngValue]="i">
-            {{elem}}
-          </option>
-        </select>
-      </md-grid-tile>
-      <md-grid-tile>
-        <select [(ngModel)]="players[0].guilty" name="playerAGuilty">
-          <option [ngValue]="null">Random</option>
-          <option *ngFor="let elem of player.getGuilts(); let i = index" [ngValue]="i">
-            {{elem}}
-          </option>
-        </select>
-      </md-grid-tile>
-    </md-grid-list>
+      <label for="playerA">Player A (Type, Personality, Guilty):</label>
+      <md-grid-list cols="3" rowHeight="50px">
+        <md-grid-tile>
+          <select [(ngModel)]="players[0].type" name="playerAType" id="playerA">
+            <option [ngValue]="null">Random</option>
+            <option *ngFor="let elem of player.getTypes(); let i = index" [ngValue]="i">
+              {{elem}}
+            </option>
+          </select>
+        </md-grid-tile>
+        <md-grid-tile>
+          <select [(ngModel)]="players[0].personality" name="playerAPersonality">
+            <option [ngValue]="null">Random</option>
+            <option *ngFor="let elem of player.getPersonalities(); let i = index" [ngValue]="i">
+              {{elem}}
+            </option>
+          </select>
+        </md-grid-tile>
+        <md-grid-tile>
+          <select [(ngModel)]="players[0].guilty" name="playerAGuilty">
+            <option [ngValue]="null">Random</option>
+            <option *ngFor="let elem of player.getGuilts(); let i = index" [ngValue]="i">
+              {{elem}}
+            </option>
+          </select>
+        </md-grid-tile>
+      </md-grid-list>
 
-    <label for="playerB">Player B (Type, Personality, Opinion):</label>
-    <md-grid-list cols="3" rowHeight="50px">
-      <md-grid-tile>
-        <select [(ngModel)]="players[1].type" name="playerBType" id="playerB">
-          <option [ngValue]="null">Random</option>
-          <option *ngFor="let elem of player.getTypes(); let i = index" [ngValue]="i">
-            {{elem}}
-          </option>
-        </select>
-      </md-grid-tile>
-      <md-grid-tile>
-        <select [(ngModel)]="players[1].personality" name="playerBPersonality">
-          <option [ngValue]="null">Random</option>
-          <option *ngFor="let elem of player.getPersonalities(); let i = index" [ngValue]="i">
-            {{elem}}
-          </option>
-        </select>
-      </md-grid-tile>
-      <md-grid-tile>
-        <select [(ngModel)]="players[1].opinion" name="playerBOpinion">
-          <option [ngValue]="null">Random</option>
-          <option *ngFor="let elem of player.getOpinions(); let i = index" [ngValue]="i">
-            {{elem}}
-          </option>
-        </select>
-      </md-grid-tile>
-    </md-grid-list>
+      <label for="playerB">Player B (Type, Personality, Opinion):</label>
+      <md-grid-list cols="3" rowHeight="50px">
+        <md-grid-tile>
+          <select [(ngModel)]="players[1].type" name="playerBType" id="playerB">
+            <option [ngValue]="null">Random</option>
+            <option *ngFor="let elem of player.getTypes(); let i = index" [ngValue]="i">
+              {{elem}}
+            </option>
+          </select>
+        </md-grid-tile>
+        <md-grid-tile>
+          <select [(ngModel)]="players[1].personality" name="playerBPersonality">
+            <option [ngValue]="null">Random</option>
+            <option *ngFor="let elem of player.getPersonalities(); let i = index" [ngValue]="i">
+              {{elem}}
+            </option>
+          </select>
+        </md-grid-tile>
+        <md-grid-tile>
+          <select [(ngModel)]="players[1].opinion" name="playerBOpinion">
+            <option [ngValue]="null">Random</option>
+            <option *ngFor="let elem of player.getOpinions(); let i = index" [ngValue]="i">
+              {{elem}}
+            </option>
+          </select>
+        </md-grid-tile>
+      </md-grid-list>
 
-    <label for="tournament">Tournament:</label>
-    <select [(ngModel)]="tournament" name="tournament" id="tournament">
-      <option [ngValue]="null">Random</option>
-      <option *ngFor="let elem of tournaments" [ngValue]="elem">
-        {{elem.title}}
-      </option>
-    </select>
+      <label for="tournament">Tournament:</label>
+      <select [(ngModel)]="tournament" name="tournament" id="tournament">
+        <option [ngValue]="null">Random</option>
+        <option *ngFor="let elem of tournaments" [ngValue]="elem">
+          {{elem.title}}
+        </option>
+      </select>
 
-    <button md-raised-button color="primary" type="submit">Generate Situation</button>
+      <a class="right" md-raised-button href="https://github.com/bra1n/judgetoolbox/" target="_blank">Source code on
+        GitHub</a>
+      <button class="right" type="reset" md-raised-button (click)="advanced=0">Show simple options</button>
+      <button md-raised-button color="primary" type="submit">Generate Situation</button>
+    </div>
+
+
   </form>
 </div>
