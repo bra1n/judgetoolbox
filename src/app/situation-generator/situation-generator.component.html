@@ -1,11 +1,11 @@
 <div class="step1" *ngIf="step == 1">
   <md-card class="player" *ngFor="let playerIds of players; let i = index">
-    <md-card-title>Player {{playerIds.name}}</md-card-title>
+    <md-card-title>{{'labels.player'+playerIds.name | translate}}</md-card-title>
     <md-card-content>
-      <div><b>Type:</b> <span>{{player.getTypes()[playerIds.type]}}</span></div>
-      <div><b>Personality:</b> <span>{{player.getPersonalities()[playerIds.personality]}}</span></div>
-      <div *ngIf="i == 0"><b>On purpose:</b> <span>{{player.getGuilts()[playerIds.guilty]}}</span></div>
-      <div *ngIf="i == 1"><b>Opinion:</b> <span>{{player.getOpinions()[playerIds.opinion]}}</span></div>
+      <div><b>{{'labels.type' | translate}}:</b> <span>{{player.getTypes()[playerIds.type]}}</span></div>
+      <div><b>{{'labels.personality' | translate}}:</b> <span>{{player.getPersonalities()[playerIds.personality]}}</span></div>
+      <div *ngIf="i == 0"><b>{{'labels.onPurpose' | translate}}:</b> <span>{{player.getGuilts()[playerIds.guilty]}}</span></div>
+      <div *ngIf="i == 1"><b>{{'labels.opinion' | translate}}:</b> <span>{{player.getOpinions()[playerIds.opinion]}}</span></div>
     </md-card-content>
   </md-card>
   <md-card class="scenario" *ngIf="scenarios[scenarioId]">
@@ -14,26 +14,26 @@
     <md-card-content>
       <span>{{scenarios[scenarioId].description}}</span><br>
       <span *ngIf="scenarios[scenarioId].example">
-        <i>Example: {{scenarios[scenarioId].example}}</i>
+        <i>{{'labels.example' | translate}}: {{scenarios[scenarioId].example}}</i>
       </span>
     </md-card-content>
   </md-card>
 
-  <button md-raised-button routerLink="/random-situation-generator">Back</button>
-  <button md-raised-button color="primary" (click)="next()">Done</button>
+  <button md-raised-button routerLink="/random-situation-generator">{{'labels.back' | translate}}</button>
+  <button md-raised-button color="primary" (click)="next()">{{'labels.done' | translate}}</button>
 </div>
 
 <div class="step2" *ngIf="step == 2">
   <md-card class="tournament" *ngIf="tournaments[tournamentId]">
-    <md-card-subtitle>REL {{tournaments[tournamentId].rel}}</md-card-subtitle>
+    <md-card-subtitle>{{'labels.rel' | translate}} {{tournaments[tournamentId].rel}}</md-card-subtitle>
     <md-card-title>{{tournaments[tournamentId].title}}</md-card-title>
     <md-card-content>
       <span>{{tournaments[tournamentId].description}}</span><br>
-      <i>Staff: <span>{{tournaments[tournamentId].staff}}</span></i>
+      <i>{{'labels.staff' | translate}}: <span>{{tournaments[tournamentId].staff}}</span></i>
     </md-card-content>
   </md-card>
 
-  <button md-raised-button (click)="previous()">Back</button>
-  <button md-raised-button color="primary" routerLink="/random-situation-generator">Restart</button>
+  <button md-raised-button (click)="previous()">{{'labels.back' | translate}}</button>
+  <button md-raised-button color="primary" routerLink="/random-situation-generator">{{'labels.restart' | translate}}</button>
 </div>
 

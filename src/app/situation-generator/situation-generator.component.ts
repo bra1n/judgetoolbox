@@ -1,16 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { SituationService } from "./situation.service";
 import { Player } from './player';
 import { ActivatedRoute } from '@angular/router';
 import { Scenario } from './scenario';
 import { Tournament } from './tournament';
+import { TranslateService } from '@ngx-translate/core';
+import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'situation-generator',
   templateUrl: './situation-generator.component.html',
   styleUrls: ['./situation-generator.component.scss']
 })
-export class SituationGeneratorComponent implements OnInit {
+export class SituationGeneratorComponent implements OnInit, OnDestroy {
+
+  private ngUnsubscribe: Subject<void> = new Subject<void>();
 
   private player: Player = new Player();
   private scenarios: Scenario[] = [];
@@ -29,7 +33,8 @@ export class SituationGeneratorComponent implements OnInit {
 
   constructor(
     private situationService: SituationService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private translate: TranslateService
   ) { }
 
   ngOnInit() {
@@ -51,6 +56,30 @@ export class SituationGeneratorComponent implements OnInit {
       });
     });
 
+    this.getData();
+    this.translate.onLangChange.takeUntil(this.ngUnsubscribe).subscribe(() => {
+      this.getData();
+    });
+  }
+
+  ngOnDestroy() {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
+  }
+
+  next() {
+    this.step++;
+  }
+
+  previous() {
+    this.translate.get('labels.backConfirm').subscribe((res: string) => {
+      if(confirm(res)) {
+        this.step--;
+      }
+    });
+  }
+
+  private getData() {
     this.situationService.getPlayer()
       .subscribe(player => this.player = player);
 
@@ -59,15 +88,5 @@ export class SituationGeneratorComponent implements OnInit {
 
     this.situationService.getTournaments()
       .subscribe(tournaments => this.tournaments = tournaments);
-  }
-
-  next() {
-    this.step++;
-  }
-
-  previous() {
-    if(confirm("Are you sure you want to go back?")) {
-      this.step--;
-    }
   }
 }

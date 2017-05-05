@@ -1,10 +1,8 @@
 <md-toolbar color="primary">
-  <span>{{title}}</span>
-  <button md-icon-button [md-menu-trigger-for]="menu">
-    <md-icon>more_vert</md-icon>
-  </button>
+  <span routerLink="/random-situation-generator">{{title}}</span>
+  <md-select [(ngModel)]="language" (change)="onLanguageChange()" placeholder="{{'labels.language' | translate}}"
+             name="language">
+    <md-option *ngFor="let lg of languages" [value]="lg.name">{{lg.label}}</md-option>
+  </md-select>
 </md-toolbar>
-<md-menu x-position="before" #menu="mdMenu">
-  <button md-menu-item routerLink="/random-situation-generator">Random Situation Generator</button>
-</md-menu>
 <router-outlet></router-outlet>

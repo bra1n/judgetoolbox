@@ -1,0 +1,15 @@
+{
+  "labels": {
+    "generateSituation": "Generar situación ",
+    "advancedOptions": "Mostrar opciones avanzadas ",
+    "back": "Atrás",
+    "done": "Listo",
+    "restart": "Reiniciar",
+    "simpleOptions": "Mostrar opciones simples ",
+    "source": "Código fuente en GitHub ",
+    "language": "Idioma",
+    "introduction": "Introducción",
+    "difficulty": "Dificultad",
+    "id": "ID"
+  }
+}

@@ -7,14 +7,11 @@
     font-weight: bold;
   }
 
-  select {
-    display: block;
-    width: 100%;
-    height: 40px;
-    margin-bottom: 10px;
-    background: white;
-    border: 1px solid gray;
-    border-radius: 5px;
+  .advanced {
+    md-select {
+      width: 100%;
+      margin: 20px 0;
+    }
   }
 
   div.simple {

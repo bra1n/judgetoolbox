@@ -8,31 +8,86 @@ import { Tournament } from './tournament';
 @Injectable()
 export class SituationService {
 
+  private language:string = 'en';
+
+  private languages:{label: string, name: string}[] = [
+    {name: 'cn', label: '???'},
+    {name: 'en', label: 'English'},
+    {name: 'es', label: 'Español'},
+    {name: 'fr', label: 'Français'},
+    {name: 'it', label: 'Italiano'},
+    {name: 'jp', label: '日本語'},
+  ];
+
   private urls = {
-    player: 'https://spreadsheets.google.com/feeds/cells/1PWfCiMOd1_cdB6q2gEscadySCVCGyEvSVPpDasjhwSg/1/public/values?alt=json-in-script&callback=JSONP_CALLBACK',
-    tournament: 'https://spreadsheets.google.com/feeds/cells/1PWfCiMOd1_cdB6q2gEscadySCVCGyEvSVPpDasjhwSg/2/public/values?alt=json-in-script&callback=JSONP_CALLBACK',
-    scenario: 'https://spreadsheets.google.com/feeds/cells/1PWfCiMOd1_cdB6q2gEscadySCVCGyEvSVPpDasjhwSg/3/public/values?alt=json-in-script&callback=JSONP_CALLBACK'
+    en: {
+      player: 'https://spreadsheets.google.com/feeds/cells/1PWfCiMOd1_cdB6q2gEscadySCVCGyEvSVPpDasjhwSg/1/public/values?alt=json-in-script&callback=JSONP_CALLBACK',
+      tournament: 'https://spreadsheets.google.com/feeds/cells/1PWfCiMOd1_cdB6q2gEscadySCVCGyEvSVPpDasjhwSg/2/public/values?alt=json-in-script&callback=JSONP_CALLBACK',
+      scenario: 'https://spreadsheets.google.com/feeds/cells/1PWfCiMOd1_cdB6q2gEscadySCVCGyEvSVPpDasjhwSg/3/public/values?alt=json-in-script&callback=JSONP_CALLBACK'
+    },
+    it: {
+      player: 'https://spreadsheets.google.com/feeds/cells/1dQD61k4J9DEH87Lee1ljZ6rWH0wEaXSdNWDk4s0wIeU/1/public/values?alt=json-in-script&callback=JSONP_CALLBACK',
+      tournament: 'https://spreadsheets.google.com/feeds/cells/1dQD61k4J9DEH87Lee1ljZ6rWH0wEaXSdNWDk4s0wIeU/2/public/values?alt=json-in-script&callback=JSONP_CALLBACK',
+      scenario: 'https://spreadsheets.google.com/feeds/cells/1dQD61k4J9DEH87Lee1ljZ6rWH0wEaXSdNWDk4s0wIeU/3/public/values?alt=json-in-script&callback=JSONP_CALLBACK'
+    },
+    es: {
+      player: 'https://spreadsheets.google.com/feeds/cells/1tz29Dz8GhA57djBoh6XVVR0AVpD1qQgPpr-yiAa2lj8/1/public/values?alt=json-in-script&callback=JSONP_CALLBACK',
+      tournament: 'https://spreadsheets.google.com/feeds/cells/1tz29Dz8GhA57djBoh6XVVR0AVpD1qQgPpr-yiAa2lj8/2/public/values?alt=json-in-script&callback=JSONP_CALLBACK',
+      scenario: 'https://spreadsheets.google.com/feeds/cells/1tz29Dz8GhA57djBoh6XVVR0AVpD1qQgPpr-yiAa2lj8/3/public/values?alt=json-in-script&callback=JSONP_CALLBACK'
+    },
+    fr: {
+      player: 'https://spreadsheets.google.com/feeds/cells/1z0l4JlOTWkFOyZ8FzSXldk8cwLeqKA55yeuEI8muJnU/1/public/values?alt=json-in-script&callback=JSONP_CALLBACK',
+      tournament: 'https://spreadsheets.google.com/feeds/cells/1z0l4JlOTWkFOyZ8FzSXldk8cwLeqKA55yeuEI8muJnU/2/public/values?alt=json-in-script&callback=JSONP_CALLBACK',
+      scenario: 'https://spreadsheets.google.com/feeds/cells/1z0l4JlOTWkFOyZ8FzSXldk8cwLeqKA55yeuEI8muJnU/3/public/values?alt=json-in-script&callback=JSONP_CALLBACK'
+    },
+    cn: {
+      player: 'https://spreadsheets.google.com/feeds/cells/1rORT95kUpOf_CHxVmrTvnPaAU-9XF4auFrEki_ypSZs/1/public/values?alt=json-in-script&callback=JSONP_CALLBACK',
+      tournament: 'https://spreadsheets.google.com/feeds/cells/1rORT95kUpOf_CHxVmrTvnPaAU-9XF4auFrEki_ypSZs/2/public/values?alt=json-in-script&callback=JSONP_CALLBACK',
+      scenario: 'https://spreadsheets.google.com/feeds/cells/1rORT95kUpOf_CHxVmrTvnPaAU-9XF4auFrEki_ypSZs/3/public/values?alt=json-in-script&callback=JSONP_CALLBACK'
+    },
+    jp: {
+      player: 'https://spreadsheets.google.com/feeds/cells/1y1ZTb8UZAr7MZoSc5CODgDoCNy_21-Jh1Z8q95QbAi0/1/public/values?alt=json-in-script&callback=JSONP_CALLBACK',
+      tournament: 'https://spreadsheets.google.com/feeds/cells/1y1ZTb8UZAr7MZoSc5CODgDoCNy_21-Jh1Z8q95QbAi0/2/public/values?alt=json-in-script&callback=JSONP_CALLBACK',
+      scenario: 'https://spreadsheets.google.com/feeds/cells/1y1ZTb8UZAr7MZoSc5CODgDoCNy_21-Jh1Z8q95QbAi0/3/public/values?alt=json-in-script&callback=JSONP_CALLBACK'
+    }
   };
 
   private requests = {
-    player: new ReplaySubject(1),
-    tournaments: new ReplaySubject(1),
-    scenarios: new ReplaySubject(1)
+    player: {},
+    tournaments: {},
+    scenarios: {}
   };
 
   constructor (private jsonp: Jsonp) {}
 
+  setLanguage (language: string)  {
+    if (this.urls[language] && this.language != language) {
+      this.language = language;
+    }
+  }
+
+  getLanguage (): string {
+    return this.language;
+  }
+
+  getLanguages (): object[] {
+    return this.languages;
+  }
+
   getPlayer (): Observable<Player> {
-    if(!this.requests.player.observers.length) {
-      this.jsonp.get(this.urls.player)
+    if(!this.requests.player[this.language]) {
+      this.requests.player[this.language] = new ReplaySubject(1);
+    }
+    if(!this.requests.player[this.language].observers.length) {
+      this.jsonp.get(this.urls[this.language].player)
         .map(this.parsePlayer.bind(this))
         .catch(this.handleError)
         .subscribe(
-          player => this.requests.player.next(player),
-          error => this.requests.player.error(error)
+          player => this.requests.player[this.language].next(player),
+          error => this.requests.player[this.language].error(error)
         );
     }
-    return <Observable<Player>> this.requests.player.asObservable();
+    return <Observable<Player>> this.requests.player[this.language].asObservable();
   }
 
   private parsePlayer (res: Response): Player {
@@ -43,16 +98,19 @@ export class SituationService {
   }
 
   getScenarios (): Observable<Scenario[]> {
-    if(!this.requests.scenarios.observers.length) {
-      this.jsonp.get(this.urls.scenario)
+    if(!this.requests.scenarios[this.language]) {
+      this.requests.scenarios[this.language] = new ReplaySubject(1);
+    }
+    if(!this.requests.scenarios[this.language].observers.length) {
+      this.jsonp.get(this.urls[this.language].scenario)
         .map(this.parseScenarios.bind(this))
         .catch(this.handleError)
         .subscribe(
-          scenarios => this.requests.scenarios.next(scenarios),
-          error => this.requests.scenarios.error(error)
+          scenarios => this.requests.scenarios[this.language].next(scenarios),
+          error => this.requests.scenarios[this.language].error(error)
         );
     }
-    return <Observable<Scenario[]>> this.requests.scenarios.asObservable();
+    return <Observable<Scenario[]>> this.requests.scenarios[this.language].asObservable();
   }
 
   private parseScenarios (res: Response): Scenario[] {
@@ -63,16 +121,19 @@ export class SituationService {
   }
 
   getTournaments (): Observable<Tournament[]> {
-    if(!this.requests.tournaments.observers.length) {
-      this.jsonp.get(this.urls.tournament)
+    if(!this.requests.tournaments[this.language]) {
+      this.requests.tournaments[this.language] = new ReplaySubject(1);
+    }
+    if(!this.requests.tournaments[this.language].observers.length) {
+      this.jsonp.get(this.urls[this.language].tournament)
         .map(this.parseTournaments.bind(this))
         .catch(this.handleError)
         .subscribe(
-          tournaments => this.requests.tournaments.next(tournaments),
-          error => this.requests.tournaments.error(error)
+          tournaments => this.requests.tournaments[this.language].next(tournaments),
+          error => this.requests.tournaments[this.language].error(error)
         );
     }
-    return <Observable<Tournament[]>> this.requests.tournaments.asObservable();
+    return <Observable<Tournament[]>> this.requests.tournaments[this.language].asObservable();
   }
 
   private parseTournaments (res: Response): Tournament[] {

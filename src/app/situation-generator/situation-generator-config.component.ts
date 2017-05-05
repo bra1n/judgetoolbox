@@ -1,16 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { SituationService } from './situation.service';
 import { Player } from './player';
 import { Scenario } from './scenario';
 import { Tournament } from './tournament';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'situation-generator-config',
   templateUrl: './situation-generator-config.component.html',
   styleUrls: ['./situation-generator-config.component.scss']
 })
-export class SituationGeneratorConfigComponent implements OnInit {
+export class SituationGeneratorConfigComponent implements OnInit, OnDestroy {
+
+  private ngUnsubscribe: Subject<void> = new Subject<void>();
 
   private player: Player = new Player();
   private scenarios: Scenario[] = [];
@@ -28,17 +32,22 @@ export class SituationGeneratorConfigComponent implements OnInit {
   private scenario: Scenario = null;
   private tournament: Tournament = null;
 
-  constructor(private situationService: SituationService, private router: Router) { }
+  constructor(
+    private situationService: SituationService,
+    private router: Router,
+    private translate: TranslateService
+  ) {}
 
   ngOnInit() {
-    this.situationService.getPlayer()
-      .subscribe(player => this.player = player);
+    this.getData();
+    this.translate.onLangChange.takeUntil(this.ngUnsubscribe).subscribe(() => {
+      this.getData();
+    });
+  }
 
-    this.situationService.getScenarios()
-      .subscribe(scenarios => this.scenarios = scenarios);
-
-    this.situationService.getTournaments()
-      .subscribe(tournaments => this.tournaments = tournaments);
+  ngOnDestroy() {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
   }
 
   onSubmit() {
@@ -62,4 +71,14 @@ export class SituationGeneratorConfigComponent implements OnInit {
     this.router.navigate(['/random-situation', {scenario, players: players.join('--'), tournament}]);
   }
 
+  private getData():void {
+    this.situationService.getPlayer()
+      .subscribe(player => this.player = player);
+
+    this.situationService.getScenarios()
+      .subscribe(scenarios => this.scenarios = scenarios);
+
+    this.situationService.getTournaments()
+      .subscribe(tournaments => this.tournaments = tournaments);
+  }
 }
