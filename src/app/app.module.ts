@@ -18,7 +18,7 @@ import {
 } from '@angular/material';
 
 export function HttpLoaderFactory(http: Http) {
-  return new TranslateHttpLoader(http);
+  return new TranslateHttpLoader(http, './assets/i18n/');
 }
 
 @NgModule({
