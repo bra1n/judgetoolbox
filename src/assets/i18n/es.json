@@ -11,5 +11,24 @@
     "introduction": "Introducción",
     "difficulty": "Dificultad",
     "id": "ID"
+  }  
+  "text": {
+    "config": "Generate a truly random situation!",
+    "introduction0": "¿Por qué?",
+    "introduction1": "Entrenar a los jueces para tomar decisiones en situaciones desconocidas (y aleatorias)",
+    "introduction2": "Las situaciones pueden volverse complicadas por la presión de los demás, tanto de los actores como de los espectadores",
+    "introduction3": "Compartir con la comunidad (¡es divertido y aprendemos juntos!)",
+    "introduction4": "Los escenarios son diversos y ponen a prueba el conocimiento de reglas, diplomacia y habilidades de investigación",
+    "introduction5": "¿Cómo?",
+    "introduction6": "Cada situación necesita de 2 a 4 participantes: un juez, y dependiendo del escenario 1 ó 2 jugadores y/o un juez principal (Se recomienda tener de cuatro a seis participantes por grupo, ya que los demás pueden tener comentarios sobre lo ocurrido incluso si no están participando)",
+    "introduction7": "Cada grupo usará una aplicación separada para generar la situación (algunos detalles no están disponibles para todos los participantes)",
+    "introduction8": "Los jugadores preparan la situación tal y como se describe antes de 'llamar' al juez (esto requiere normalmente algunas cartas de Magic, así que ten algunas a punto para los grupos)",
+    "introduction9": "The players set up a situation as described before they 'call' a judge (this usually requires some magic cards, so have some ready for each group)",
+    "introduction10": "Player A is the one causing the judge call (the situation defines whether on purpose or not)",
+    "introduction11": "Si es relevante, el jugador B podría acustar al jugador A de hacer trampas",
+    "introduction12": "El juez responderá a la llamada",
+    "introduction13": "Después de que la situación esté resuelta todos los participantes (actores, juez, juez principal y espectadores) comentarán la situación e, idealmente, ofrecerán sus opiniones y comentarios",
+    "introduction14": "Genera una nueva situación",
+    "introduction15": "Al final del taller puedes reunir a todos los grupos y permitirles compartir lo que han aprendido"
   }
 }
