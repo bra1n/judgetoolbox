@@ -11,5 +11,24 @@
     "introduction": "Introduzione",
     "difficulty": "Difficoltà",
     "id": "ID"
+  },
+  "text": {
+    "config": "Generate a truly random situation!",
+    "introduction0": "Perché?",
+    "introduction1": "Allenare gli arbitri a rispondere a domande di ruling non familiari connesse a situazioni casuali",
+    "introduction2": "La situazione diventa complessa a causa della pressione sia per gli attori che gli spettatori",
+    "introduction3": "Costruire una comunità (perché è divertente imparare assieme!)",
+    "introduction4": "Gli scenari sono così vari da poter testare la conoscenza delle regole, la capacità diplomatica e le abilità di investigazione",
+    "introduction5": "Come?",
+    "introduction6": "Ogni situazione richiede dai 2 ai 4 partecipati: un arbitro ed in base allo scenario 1 o 2 giocatori e/o un HJ (avere 4 o 6 partecipanti in gruppi di 2 e 2.Incoraggiare così che tutti possano dare dei feedback anche se non sono dei partecipanti attivi)",
+    "introduction7": "Ogni gruppo userà questa app dedicata per generare una situazione (non tutti i dettagli saranno conosciuti a tutti i partecipanti)",
+    "introduction8": "I giocatori prepararanno la situazione prima di fare la 'chiamata' all'arbitro (questo solitamente richiederà delle carte di magic che dovranno essere preparate per ogni gruppo)",
+    "introduction9": "Il giocatore A sarà la causa della chiamata all'arbitro (la situazione indica se di proposito o meno)",
+    "introduction10": "Se rilevante, il giocatore B potrà accusare il giocatore A di barare",
+    "introduction11": "L'arbitro risponderà alla chiamata",
+    "introduction12": "The Judge will answer the call",
+    "introduction13": "Dopo che la situazione è stata risolta, tutti i partecipanti (attori, arbitri, HJ e spettatori) discuteranno sulla questione e ciascuno sarà benvenuto a dare dei feedback",
+    "introduction14": "Generare una nuova situazione",
+    "introduction15": "Alla fine del workshop tutti i gruppi potranno essere uniti per condividere quanto hanno imparato"
   }
 }
