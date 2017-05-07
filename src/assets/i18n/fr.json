@@ -11,5 +11,24 @@
     "introduction": "Introduction",
     "difficulty": "Difficulté",
     "id": "ID"
+  },
+  "text": {
+    "config": "Generate a truly random situation!",
+    "introduction0": "Pourquoi ?",
+    "introduction1": "Habituer les arbitres à rendre des décisions dans des situations inhabituelles (aléatoires)",
+    "introduction2": "La situation est rendue stressante par la présence des acteurs et spectateurs.",
+    "introduction3": "Favorise le développement  de la communauté arbitrale.",
+    "introduction4": "Les scénarios sont variés et peuvent tester la connaissance des règles, la diplomatie et les capacité d'investigation.",
+    "introduction5": "Comment ?",
+    "introduction6": "Chaque situation requiert 2 à 4 participants: un arbitre, et selon le scénario, 1 ou 2 joueurs, et / ou un head judge. (avoir 4 à 6 partcipants par groupe est... ",
+    "introduction7": "Encouragé, puisque les personnes ne participant pas activement, peuvent avoir des commentaires utiles.",
+    "introduction8": "Chaque groupe se servira d'une application dédiée pour générer une situation (certains détails indisponibles à certains participants).",
+    "introduction9": "Les joueurs mettent en place un problème avant « d'appeler » un arbitre (cela requiert généralement quelques cartes, donc soyez sûr d'en avoir à disposition pour chaque groupe)",
+    "introduction10": "Le joueur A est celui qui provoque l'intervention de l'arbitre (La situation définie l'objet de l'appel)",
+    "introduction11": "Si c'est pertinent, le joueur B accuse le joueur A de tricher.",
+    "introduction12": "L'arbitre intervient et résout le problème",
+    "introduction13": "Une fois le problème résolu, tous les participants (acteurs, arbitre, Head Judge et spectateurs) discutent du problème et peuvent apporter un éclaircissement supplémentaire.",
+    "introduction14": "Générez une nouvelle situation.",
+    "introduction15": " À la fin de l'atelier, vous pouvez réunir les groupes et faire partager les expériences et ce qu'ils ont appris."
   }
 }
