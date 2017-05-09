@@ -4,8 +4,10 @@
     <md-card-content>
       <div><b>{{'labels.type' | translate}}:</b> <span>{{player.getTypes()[playerIds.type]}}</span></div>
       <div><b>{{'labels.personality' | translate}}:</b> <span>{{player.getPersonalities()[playerIds.personality]}}</span></div>
-      <div *ngIf="i == 0"><b>{{'labels.onPurpose' | translate}}:</b> <span>{{player.getGuilts()[playerIds.guilty]}}</span></div>
-      <div *ngIf="i == 1"><b>{{'labels.opinion' | translate}}:</b> <span>{{player.getOpinions()[playerIds.opinion]}}</span></div>
+      <div *ngIf="scenarios[scenarioId].flag">
+        <div *ngIf="i == 0"><b>{{'labels.onPurpose' | translate}}:</b> <span>{{player.getGuilts()[playerIds.guilty]}}</span></div>
+        <div *ngIf="i == 1"><b>{{'labels.opinion' | translate}}:</b> <span>{{player.getOpinions()[playerIds.opinion]}}</span></div>
+      </div>
     </md-card-content>
   </md-card>
   <md-card class="scenario" *ngIf="scenarios[scenarioId]">

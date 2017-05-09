@@ -1,5 +1,5 @@
 <md-toolbar color="primary">
-  <span routerLink="/random-situation-generator">{{title}}</span>
+  <span class="title" routerLink="/random-situation-generator">{{title}}</span>
   <md-select [(ngModel)]="language" (change)="onLanguageChange()" placeholder="{{'labels.language' | translate}}"
              name="language">
     <md-option *ngFor="let lg of languages" [value]="lg.name">{{lg.label}}</md-option>

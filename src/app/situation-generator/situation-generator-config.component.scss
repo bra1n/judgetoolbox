@@ -23,4 +23,25 @@
     float: right;
     margin-left: 10px;
   }
+
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .buttons > * {
+    margin-left: 10px;
+    flex-shrink: 0;
+    @media (max-width: 600px) {
+      width: 100%;
+      margin: 0 0 10px;
+    }
+  }
+  .buttons > *:first-child {
+    margin-left: 0;
+  }
+  .buttons .gap {
+    flex-grow: 1;
+    margin: 0;
+  }
 }

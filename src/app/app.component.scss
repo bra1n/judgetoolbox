@@ -1,3 +1,9 @@
 span {
   flex: 1 1 auto;
 }
+
+.title {
+  margin-right: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

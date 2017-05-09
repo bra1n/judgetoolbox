@@ -66,9 +66,12 @@
         <md-option *ngFor="let elem of tournaments" [value]="elem">{{elem.title}}</md-option>
       </md-select>
 
-      <a class="right" md-raised-button href="https://github.com/bra1n/judgetoolbox/" target="_blank" translate>{{'labels.source' | translate}}</a>
-      <button class="right" type="reset" md-raised-button (click)="advanced=0">{{'labels.simpleOptions' | translate}}</button>
-      <button md-raised-button color="primary" type="submit">{{'labels.generateSituation' | translate}}</button>
+      <div class="buttons">
+        <button md-raised-button color="primary" type="submit">{{'labels.generateSituation' | translate}}</button>
+        <span class="gap"></span>
+        <button type="reset" md-raised-button (click)="advanced=0">{{'labels.simpleOptions' | translate}}</button>
+        <a md-raised-button href="https://github.com/bra1n/judgetoolbox/" target="_blank" translate>{{'labels.source' | translate}}</a>
+      </div>
     </div>
 
 

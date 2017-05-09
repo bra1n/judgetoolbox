@@ -11,6 +11,7 @@ export class SituationService {
   private language:string = 'en';
 
   private languages:{label: string, name: string}[] = [
+    {name: 'de', label: 'Deutsch'},
     {name: 'en', label: 'English'},
     {name: 'es', label: 'Español'},
     {name: 'fr', label: 'Français'},
@@ -49,6 +50,11 @@ export class SituationService {
       player: 'https://spreadsheets.google.com/feeds/cells/1y1ZTb8UZAr7MZoSc5CODgDoCNy_21-Jh1Z8q95QbAi0/1/public/values?alt=json-in-script&callback=JSONP_CALLBACK',
       tournament: 'https://spreadsheets.google.com/feeds/cells/1y1ZTb8UZAr7MZoSc5CODgDoCNy_21-Jh1Z8q95QbAi0/2/public/values?alt=json-in-script&callback=JSONP_CALLBACK',
       scenario: 'https://spreadsheets.google.com/feeds/cells/1y1ZTb8UZAr7MZoSc5CODgDoCNy_21-Jh1Z8q95QbAi0/3/public/values?alt=json-in-script&callback=JSONP_CALLBACK'
+    },
+    de: {
+      player: 'https://spreadsheets.google.com/feeds/cells/1CZgzNSWo2EjjVM-SbGZj_9ynYK9-tAJ5dd05tbALWTw/1/public/values?alt=json-in-script&callback=JSONP_CALLBACK',
+      tournament: 'https://spreadsheets.google.com/feeds/cells/1CZgzNSWo2EjjVM-SbGZj_9ynYK9-tAJ5dd05tbALWTw/2/public/values?alt=json-in-script&callback=JSONP_CALLBACK',
+      scenario: 'https://spreadsheets.google.com/feeds/cells/1CZgzNSWo2EjjVM-SbGZj_9ynYK9-tAJ5dd05tbALWTw/3/public/values?alt=json-in-script&callback=JSONP_CALLBACK'
     }
   };
 
