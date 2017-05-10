@@ -11,6 +11,19 @@
     "introduction": "Introduzione",
     "difficulty": "Difficoltà",
     "id": "ID"
+    "backConfirm": "Are you sure you want to go back?",
+    "scenario": "Scenario",
+    "example": "Example",
+    "staff": "Staff",
+    "tournament": "Tournament",
+    "type": "Type",
+    "onPurpose": "On Purpose",
+    "opinion": "Opinion",
+    "personality": "Personality",
+    "playerA": "Player A",
+    "playerB": "Player B",
+    "random": "Random",
+    "rel": "REL"    
   },
   "text": {
     "config": "Generate a truly random situation!",
