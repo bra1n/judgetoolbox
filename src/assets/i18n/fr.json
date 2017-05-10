@@ -16,14 +16,14 @@
     "example": "Exemple",
     "staff": "Équipe",
     "tournament": "Tournoi",
-    "type": "Type"
+    "type": "Type",
     "onPurpose": "Délibérement",
     "opinion": "Opinion",
     "personality": "Personalité",
     "playerA": "Joueur A",
     "playerB": "Joueur B",
     "random": "Aléatoire",
-    "rel": "REL",
+    "rel": "REL"
     
   },
   "text": {
