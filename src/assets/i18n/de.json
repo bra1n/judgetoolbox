@@ -1,1 +1,48 @@
-{}
+{
+  "labels": {
+    "generateSituation": "Situation generieren",
+    "advancedOptions": "Fortgeschrittene Optionen",
+    "back": "Zurück",
+    "done": "Fertig",
+    "restart": "Neu starten",    
+    "simpleOptions": "Einfache Optionen",
+    "source": "Source-Code auf GitHub",
+    "language": "Sprache",
+    "introduction": "Einleitung",
+    "difficulty": "Schwierigkeitsgrad",
+    "id": "ID",
+    "backConfirm": "Willst du wirklich zurück?",
+    "scenario": "Szenario",
+    "example": "Beispiel",
+    "staff": "Staff",
+    "tournament": "Turnier",
+    "type": "Typ",
+    "onPurpose": "Absichtlich",
+    "opinion": "Meinung",
+    "personality": "Persönlichkeit",
+    "playerA": "Spieler A",
+    "playerB": "Spieler B",
+    "random": "Zufällig",
+    "rel": "REL"
+    
+  },
+  "text": {
+    "config": "Komplett zufällige Situation generieren!",
+   "introduction0": "Why?",
+    "introduction1": "Train judges to answer rulings in unfamiliar (random) situations",
+    "introduction2": "The situations becomes challenging because of peer pressure, both from actors and spectators",
+    "introduction3": "Community building (it’s fun and we learn together!)",
+    "introduction4": "The scenarios are diverse and can test rules knowledge, diplomacy capabilities and investigation skills",
+    "introduction5": "How?",
+    "introduction6": "Each situation requires 2-4 participants: a judge, and depending on the scenario 1-2 players and/or a head judge (having four to six participants per group is 2.",
+    "introduction7": "Encouraged, since people may have feedback even if they're not actively participating)",
+    "introduction8": "Each group will use a dedicated app to generate the situation (some of the details are not available to all participants)",
+    "introduction9": "The players set up a situation as described before they 'call' a judge (this usually requires some magic cards, so have some ready for each group)",
+    "introduction10": "Player A is the one causing the judge call (the situation defines whether on purpose or not)",
+    "introduction11": "If relevant, Player B may accuse Player A of cheating",
+    "introduction12": "The Judge will answer the call",
+    "introduction13": "After the situation is resolved, all participants (actors, judge, HJ and spectators) will discuss the situation and are welcome to give feedback",
+    "introduction14": "Generate a new situation",
+    "introduction15": "At the end of the workshop you may gather all groups and have them share what they learned"
+  }
+}
