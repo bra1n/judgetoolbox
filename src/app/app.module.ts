@@ -6,14 +6,17 @@ import { Http, HttpModule, JsonpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { SituationGeneratorComponent } from './situation-generator/situation-generator.component';
 import { SituationService } from "./situation-generator/situation.service";
-import { SituationGeneratorConfigComponent } from "./situation-generator/situation-generator-config.component";
+import {
+  SituationGeneratorConfigComponent,
+  SituationGeneratorConfigDialog
+} from "./situation-generator/situation-generator-config.component";
 import { UniquePipe } from './situation-generator/unique.pipe';
 import { AppRoutingModule } from './app-routing.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
-  MdButtonModule, MdCardModule, MdGridListModule, MdIconModule, MdMenuModule, MdSelectModule,
+  MdButtonModule, MdCardModule, MdDialogModule, MdGridListModule, MdIconModule, MdMenuModule, MdSelectModule,
   MdToolbarModule
 } from '@angular/material';
 
@@ -26,6 +29,7 @@ export function HttpLoaderFactory(http: Http) {
     AppComponent,
     SituationGeneratorComponent,
     SituationGeneratorConfigComponent,
+    SituationGeneratorConfigDialog,
     UniquePipe
   ],
   imports: [
@@ -38,6 +42,7 @@ export function HttpLoaderFactory(http: Http) {
     MdGridListModule,
     MdCardModule,
     MdIconModule,
+    MdDialogModule,
     FormsModule,
     HttpModule,
     JsonpModule,
@@ -52,6 +57,9 @@ export function HttpLoaderFactory(http: Http) {
   ],
   providers: [
     SituationService
+  ],
+  entryComponents: [
+    SituationGeneratorConfigDialog
   ],
   bootstrap: [AppComponent]
 })

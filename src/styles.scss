@@ -9,6 +9,7 @@ $judge-app-theme: mat-light-theme($judge-app-primary, $judge-app-accent, $judge-
 
 @include angular-material-theme($judge-app-theme);
 
+/* language select should be white */
 md-toolbar md-select {
   .mat-select-arrow,
   .mat-select-value,
@@ -20,6 +21,12 @@ md-toolbar md-select {
   }
 }
 
+/* config dropdown labels shouldn't break into two lines */
 .mat-select-placeholder {
   white-space: nowrap;
+}
+
+/* dialogs should have a max height of 80% */
+.mat-dialog-container {
+  max-height: 80vh;
 }

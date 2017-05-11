@@ -6,6 +6,7 @@ import { Tournament } from './tournament';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Subject } from 'rxjs/Subject';
+import { MdDialog } from '@angular/material';
 
 @Component({
   selector: 'situation-generator-config',
@@ -35,7 +36,8 @@ export class SituationGeneratorConfigComponent implements OnInit, OnDestroy {
   constructor(
     private situationService: SituationService,
     private router: Router,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private dialog: MdDialog
   ) {}
 
   ngOnInit() {
@@ -71,6 +73,10 @@ export class SituationGeneratorConfigComponent implements OnInit, OnDestroy {
     this.router.navigate(['/random-situation', {scenario, players: players.join('--'), tournament}]);
   }
 
+  showFaq() {
+    this.dialog.open(SituationGeneratorConfigDialog);
+  }
+
   private getData():void {
     this.situationService.getPlayer()
       .subscribe(player => this.player = player);
@@ -82,3 +88,9 @@ export class SituationGeneratorConfigComponent implements OnInit, OnDestroy {
       .subscribe(tournaments => this.tournaments = tournaments);
   }
 }
+
+@Component({
+  selector: 'situation-generator-config-dialog',
+  templateUrl: './situation-generator-config-dialog.html',
+})
+export class SituationGeneratorConfigDialog {}

@@ -14,4 +14,8 @@ export class Scenario {
     this.flag = row['Flag'] == '1';
     this.difficulty = parseInt(row['Difficulty'], 10);
   }
+
+  getDifficultyAsArray():number[] {
+    return Array(this.difficulty);
+  }
 }

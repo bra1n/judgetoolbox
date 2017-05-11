@@ -11,7 +11,10 @@
     </md-card-content>
   </md-card>
   <md-card class="scenario" *ngIf="scenarios[scenarioId]">
-    <md-card-subtitle>{{scenarios[scenarioId].topic}}</md-card-subtitle>
+    <md-card-subtitle>
+      <md-icon color="primary" *ngFor="let x of scenarios[scenarioId].getDifficultyAsArray();">star</md-icon>
+      {{scenarios[scenarioId].topic}}
+    </md-card-subtitle>
     <md-card-title>{{scenarios[scenarioId].title}}</md-card-title>
     <md-card-content>
       <span>{{scenarios[scenarioId].description}}</span><br>

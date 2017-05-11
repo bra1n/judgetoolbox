@@ -4,6 +4,7 @@
     <div [hidden]="advanced" class="simple">
       <p translate>text.config</p>
       <button md-raised-button color="primary" type="submit">{{'labels.generateSituation' | translate}}</button>
+      <button type="button" md-raised-button (click)="showFaq()">{{'labels.faq' | translate}}</button>
       <button type="button" md-raised-button (click)="advanced=1">{{'labels.advancedOptions' | translate}}</button>
     </div>
 

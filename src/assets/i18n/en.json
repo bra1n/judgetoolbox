@@ -23,7 +23,8 @@
     "source": "Source code on GitHub",
     "staff": "Staff",
     "tournament": "Tournament",
-    "type": "Type"
+    "type": "Type",
+    "faq": "FAQ"
   },
   "text": {
     "config": "Generate a truly random situation!",
