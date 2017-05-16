@@ -16,4 +16,4 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Deploying to Github Pages
 
-Run `ng github-pages:deploy` to deploy to Github Pages.
+Run `ng github-pages:deploy --base-href /` to deploy to Github Pages.
