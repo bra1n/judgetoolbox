@@ -30,7 +30,7 @@
 
 <div class="step2" *ngIf="step == 2">
   <md-card class="tournament" *ngIf="tournaments[tournamentId]">
-    <md-card-subtitle>{{'labels.rel' | translate}} {{tournaments[tournamentId].rel}}</md-card-subtitle>
+    <md-card-subtitle>{{'labels.rel' | translate}}: {{tournaments[tournamentId].rel}}</md-card-subtitle>
     <md-card-title>{{tournaments[tournamentId].title}}</md-card-title>
     <md-card-content>
       <span>{{tournaments[tournamentId].description}}</span><br>
